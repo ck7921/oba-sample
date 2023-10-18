@@ -3,7 +3,7 @@
 </div>
 
 <div *ngIf="balancesData">
-  Total: {{ balancesData.currencySymbol }} {{ balancesData.balanceTotalDisplay }}
+  Total: <span [ngStyle]="{color: balancesData.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ balancesData.currencySymbol }} {{ balancesData.balanceTotalDisplay }}</span>
 </div>
 
 
@@ -11,7 +11,7 @@
 
   <div *ngFor="let account of balancesData.accountBalances">
     <p>{{ account.accountName }}</p>
-    <p>{{ account.currencySymbol }} {{ account.balanceDisplay }}</p>
+    <p><span [ngStyle]="{color: account.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ account.currencySymbol }} {{ account.balanceDisplay }}</span></p>
   </div>
 
 </div>

@@ -9,6 +9,7 @@ import java.util.List;
 public class BalancesJson {
     private String balanceTotalDisplay;
     private String currencySymbol;
+    private CreditDebitType amountType;
 
     private List<AccountBalanceJson> accountBalances = new ArrayList<>();
 
@@ -18,6 +19,7 @@ public class BalancesJson {
         private String accountName;
         private String balanceDisplay;
         private String currencySymbol;
+        private CreditDebitType amountType;
     }
 
     public AccountBalanceJson addAccountBalance() {
