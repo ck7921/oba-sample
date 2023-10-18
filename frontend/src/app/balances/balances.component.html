@@ -1,0 +1,17 @@
+<div>
+  <p>Balances</p>
+</div>
+
+<div *ngIf="balancesData">
+  Total: {{ balancesData.currencySymbol }} {{ balancesData.balanceTotalDisplay }}
+</div>
+
+
+<div *ngIf="balancesData">
+
+  <div *ngFor="let account of balancesData.accountBalances">
+    <p>{{ account.accountName }}</p>
+    <p>{{ account.currencySymbol }} {{ account.balanceDisplay }}</p>
+  </div>
+
+</div>
