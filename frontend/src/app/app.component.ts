@@ -4,26 +4,30 @@ import {UserService} from "./services/user.service";
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    NgIf
-  ],
-  standalone: true
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    imports: [
+        RouterOutlet,
+        RouterLink,
+        NgIf
+    ],
+    standalone: true
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  constructor(private userService: UserService) {
-  }
+    constructor(private userService: UserService) {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  isAuthenticated(): boolean {
-    return this.userService.isAuthenticated();
-  }
+    isAuthenticated(): boolean {
+        return this.userService.isAuthenticated();
+    }
+
+    getUserName(): string {
+        return this.userService.isAuthenticated() ? this.userService.getUser().userName : "";
+    }
 
 }

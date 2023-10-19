@@ -51,6 +51,9 @@ export class UserService {
             && this.user.getValue().success;
     }
 
+    getUser() : AuthResult {
+        return this.user.getValue();
+    }
     showAuthState(): void {
         console.log("auth state in usr srvc: " + this.isAuthenticated())
     }
