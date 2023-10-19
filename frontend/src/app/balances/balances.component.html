@@ -20,6 +20,9 @@
         <p><span
                 [ngStyle]="{color: account.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ account.currencySymbol }} {{ account.balanceDisplay }}</span>
         </p>
+        <p>
+            <a [routerLink]="['/transactions', account.accountId]">Show Account Transactions</a>
+        </p>
     </div>
 
 </div>

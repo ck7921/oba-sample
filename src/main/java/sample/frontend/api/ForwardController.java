@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ForwardController {
 
     @RequestMapping({"/balances", "/authentication", "/authentication/**",
-            "/consent", "/transactions", "/transactions/**"})
+            "/consent", "/transactions/**"})
     public ModelAndView forward() {
         return new ModelAndView("forward:index.html");
     }

@@ -1,1 +1,40 @@
-<p>transactions works!</p>
+<div>
+    <p>Transactions</p>
+</div>
+
+<loading-spinner *ngIf="loadingTransactionData"></loading-spinner>
+
+<div>
+    Total: <span [ngStyle]="{color: getAmountTypeColor(transactionsData.accountAmountType)}"
+>{{ transactionsData.accountCurrencySymbol }} {{ transactionsData.accountBalanceDisplay }}</span>
+</div>
+
+<div style="padding:15px 0 0 0">
+    Sort direction: {{ sortDirection }} <span> | </span>(<a (click)="toggleSortDirection()" style="cursor: pointer;">toggle direction</a>)
+</div>
+
+
+    <div *ngFor="let txn of transactionsDetailsData" style="padding:15px 0 0 0;">
+
+        <div style="border:1px solid black;">
+            <span>Description: {{txn.description}}</span><br/>
+            <span>Date: {{txn.timestampDisplay}}</span>
+
+            <p>Amount: <span [ngStyle]="{color: getAmountTypeColor(txn.amountType)}"
+            >{{txn.amountCurrencySymbol}} {{txn.amountDisplay}}</span></p>
+            <p>Account balance: <span [ngStyle]="{color: getAmountTypeColor(txn.balanceAmountType)}"
+            >{{txn.balanceCurrencySymbol}} {{txn.balanceAmountDisplay}}</span>
+            </p>
+        </div>
+
+    </div>
+
+
+<div *ngIf="!transactionsDetailsData">
+    No transaction data available.
+</div>
+
+<div *ngIf="hasMorePages()">
+    <button (click)="loadNextPage()">Load more ...</button>
+</div>
+
