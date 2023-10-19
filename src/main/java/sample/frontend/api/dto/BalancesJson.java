@@ -12,7 +12,7 @@ public class BalancesJson {
     private List<CurrencyTotalJson> currencyTotals = new ArrayList<>();
     private List<AccountBalanceJson> accountBalances = new ArrayList<>();
 
-    public AccountBalanceJson createAndAdd() {
+    public AccountBalanceJson createAndAddBalance() {
         final AccountBalanceJson json = new AccountBalanceJson();
         this.accountBalances.add(json);
         return json;

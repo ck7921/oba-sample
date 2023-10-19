@@ -1,17 +1,10 @@
 package smaple.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
-import org.springframework.web.util.UriComponentsBuilder;
-import sample.oba.api.dto.BalancesDto;
 import sample.utils.NumericUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 

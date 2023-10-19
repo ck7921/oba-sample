@@ -42,7 +42,7 @@ public class BalancesController {
                         value.signum() < 0 ? CreditDebitType.DEBIT : CreditDebitType.CREDIT));
 
         for (final BankAccountEntity account : accounts) {
-            var balance = result.createAndAdd();
+            var balance = result.createAndAddBalance();
             balance.setAccountId(account.getAccountId());
             balance.setAccountName(account.getDescription());
             balance.setCurrencySymbol(account.getCurrency());
@@ -67,21 +67,21 @@ public class BalancesController {
                 CreditDebitType.DEBIT);
 
 
-        var accountBalance = dto.createAndAdd();
+        var accountBalance = dto.createAndAddBalance();
         accountBalance.setAccountId("123");
         accountBalance.setAccountName("UBS");
         accountBalance.setCurrencySymbol("USD");
         accountBalance.setBalanceDisplay("100'234'567'890'123,00");
         accountBalance.setAmountType(CreditDebitType.CREDIT);
 
-        var accountBalance2 = dto.createAndAdd();
+        var accountBalance2 = dto.createAndAddBalance();
         accountBalance2.setAccountId("456");
         accountBalance2.setAccountName("Credit Suisse");
         accountBalance2.setCurrencySymbol("CHF");
         accountBalance2.setBalanceDisplay("234'123'000'000'001,00");
         accountBalance2.setAmountType(CreditDebitType.DEBIT);
 
-        var accountBalance3 = dto.createAndAdd();
+        var accountBalance3 = dto.createAndAddBalance();
         accountBalance3.setAccountId("789");
         accountBalance3.setAccountName("LGT");
         accountBalance3.setCurrencySymbol("EUR");
