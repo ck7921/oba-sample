@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.annotation.PostConstruct;
 import lombok.NonNull;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +25,7 @@ import sample.oba.api.dto.*;
 
 @Component
 @ConditionalOnProperty(
-        value="app.data.dev",
+        value = "app.data.dev",
         havingValue = "false", matchIfMissing = true)
 public class AuthApiImpl implements AuthApi {
 
@@ -35,9 +34,8 @@ public class AuthApiImpl implements AuthApi {
     private final @NonNull ObaApiConfig obaApiConfig;
 
     private final @NonNull RestTemplateBuilder restTemplateBuilder;
-    private RestTemplate template;
     private final ObjectMapper mapper;
-
+    private RestTemplate template;
     @Value("${app.data.dev}")
     private String xxx;
 

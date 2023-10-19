@@ -8,7 +8,6 @@ import sample.frontend.api.dto.auth.AuthResultJson;
 import sample.frontend.api.dto.auth.ConsentApprovalJson;
 import sample.frontend.api.dto.auth.UserCredentialsJson;
 import sample.oba.api.AuthApi;
-import sample.oba.api.AuthApiImpl;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -76,8 +75,7 @@ public class DummyAuthenticationController {
             userContext.setAuthorizationToken(userAuthToken);
 
             result.setSuccess(true);
-        }
-        catch (final Exception e) { // no catch-all in prod systems
+        } catch (final Exception e) { // no catch-all in prod systems
             result.setSuccess(false);
             result.setErrorMessage(e.getMessage());
         }

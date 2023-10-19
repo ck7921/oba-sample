@@ -22,7 +22,7 @@ import java.net.URI;
 
 @Component
 @ConditionalOnProperty(
-        value="app.data.dev",
+        value = "app.data.dev",
         havingValue = "false", matchIfMissing = true)
 public class BalancesApiImpl implements BalancesApi {
 

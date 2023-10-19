@@ -10,7 +10,6 @@ import sample.frontend.api.dto.CreditDebitType;
 import sample.utils.NumericUtils;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -54,7 +53,7 @@ public class BalancesController {
         return result;
     }
 
-   // @RequestMapping("/api/balances")
+    // @RequestMapping("/api/balances")
     public BalancesJson getBalancesDummy() {
         var dto = new BalancesJson();
         dto.addTotal("CHF",
@@ -66,7 +65,6 @@ public class BalancesController {
         dto.addTotal("EUR",
                 "123,00",
                 CreditDebitType.DEBIT);
-
 
 
         var accountBalance = dto.createAndAdd();

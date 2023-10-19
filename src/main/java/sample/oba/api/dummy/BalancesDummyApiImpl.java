@@ -9,18 +9,16 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 import sample.oba.api.BalancesApi;
-import sample.oba.api.BalancesApiImpl;
 import sample.oba.api.dto.AccountListDto;
 import sample.oba.api.dto.BalancesDto;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Component
 @ConditionalOnProperty(
-        value="app.data.dev",
+        value = "app.data.dev",
         havingValue = "true")
 public class BalancesDummyApiImpl implements BalancesApi {
 
@@ -35,9 +33,9 @@ public class BalancesDummyApiImpl implements BalancesApi {
 
     @Override
     public AccountListDto getAccountList() {
-        try(final InputStream is =
-                    Files.newInputStream(ResourceUtils
-                            .getFile("classpath:dummy/account-list.json").toPath())) {
+        try (final InputStream is =
+                     Files.newInputStream(ResourceUtils
+                             .getFile("classpath:dummy/account-list.json").toPath())) {
             return mapper.readValue(is, AccountListDto.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -46,9 +44,9 @@ public class BalancesDummyApiImpl implements BalancesApi {
 
     @Override
     public BalancesDto getBalances(@NonNull String accountId) {
-        try(final InputStream is =
-                    Files.newInputStream(ResourceUtils
-                            .getFile("classpath:dummy/balances.json").toPath())) {
+        try (final InputStream is =
+                     Files.newInputStream(ResourceUtils
+                             .getFile("classpath:dummy/balances.json").toPath())) {
             return mapper.readValue(is, BalancesDto.class);
         } catch (IOException e) {
             throw new RuntimeException(e);

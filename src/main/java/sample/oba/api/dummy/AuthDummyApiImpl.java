@@ -13,7 +13,7 @@ import sample.oba.api.dto.AuthorizedUserTokenDto;
 
 @Component
 @ConditionalOnProperty(
-        value="app.data.dev",
+        value = "app.data.dev",
         havingValue = "true")
 public class AuthDummyApiImpl implements AuthApi {
 

@@ -43,7 +43,7 @@ public final class NumericUtils {
     }
 
     public static String currencyFormatted(@NonNull BigDecimal value) {
-        if(value.scale()>2) throw new IllegalArgumentException("scale>2 not supported");
+        if (value.scale() > 2) throw new IllegalArgumentException("scale>2 not supported");
         return SWISS_DECIMAL_FORMAT.format(value);
     }
 

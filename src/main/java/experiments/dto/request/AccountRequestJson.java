@@ -18,16 +18,16 @@ public class AccountRequestJson {
     @JsonProperty("Risk")
     private RiskJson risk = new RiskJson();
 
+    public AccountRequestJson addPermissions(@NonNull final String... permissions) {
+        this.data.getPermissions().addAll(Arrays.asList(permissions));
+        return this;
+    }
+
     @Data
     public static class AccountRequestDataJson {
 
         @JsonProperty("Permissions")
         private List<String> Permissions = new ArrayList<>();
-    }
-
-    public AccountRequestJson addPermissions(@NonNull final String... permissions) {
-        this.data.getPermissions().addAll(Arrays.asList(permissions));
-        return this;
     }
 
 }

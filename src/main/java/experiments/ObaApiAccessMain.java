@@ -52,7 +52,6 @@ public class ObaApiAccessMain {
                 .printf("Configured authorization UserName: %s\n", authorizationUserName);
 
 
-
         MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
         body.add("grant_type", "client_credentials");
         body.add("client_id", clientId);

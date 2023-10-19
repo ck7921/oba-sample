@@ -9,24 +9,8 @@ import java.util.List;
 @Data
 public class BalancesJson {
 
-    private List<CurrencyTotalJson> currencyTotals  = new ArrayList<>();
+    private List<CurrencyTotalJson> currencyTotals = new ArrayList<>();
     private List<AccountBalanceJson> accountBalances = new ArrayList<>();
-
-    @Data
-    public static class AccountBalanceJson {
-        private String accountId;
-        private String accountName;
-        private String balanceDisplay;
-        private String currencySymbol;
-        private CreditDebitType amountType;
-    }
-
-    @Data
-    public static class CurrencyTotalJson {
-        private String balanceDisplay;
-        private String currencySymbol;
-        private CreditDebitType amountType;
-    }
 
     public AccountBalanceJson createAndAdd() {
         final AccountBalanceJson json = new AccountBalanceJson();
@@ -43,6 +27,22 @@ public class BalancesJson {
         total.setAmountType(amountType);
         this.currencyTotals.add(total);
         return this;
+    }
+
+    @Data
+    public static class AccountBalanceJson {
+        private String accountId;
+        private String accountName;
+        private String balanceDisplay;
+        private String currencySymbol;
+        private CreditDebitType amountType;
+    }
+
+    @Data
+    public static class CurrencyTotalJson {
+        private String balanceDisplay;
+        private String currencySymbol;
+        private CreditDebitType amountType;
     }
 
 }
