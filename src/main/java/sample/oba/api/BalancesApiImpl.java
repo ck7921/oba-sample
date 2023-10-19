@@ -41,7 +41,7 @@ public class BalancesApiImpl implements BalancesApi {
 
     @PostConstruct
     public void init() {
-        logger.info("Running with AuthApi: {}", this.getClass().getSimpleName());
+        logger.info("Running with BalancesApi: {}", this.getClass().getSimpleName());
         this.template = restTemplateBuilder.build();
     }
 
