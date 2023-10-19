@@ -4,11 +4,12 @@ import {BalancesData} from "../services/models/balances.model";
 import {AccountService} from "../services/account.service";
 import {Subscription} from "rxjs";
 import {RouterLink} from "@angular/router";
+import {LoadingSpinnerComponent} from "../shared/loading-spinner.component";
 
 @Component({
   selector: 'app-balances',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, LoadingSpinnerComponent],
   templateUrl: './balances.component.html',
   styleUrls: ['./balances.component.css']
 })
@@ -32,6 +33,10 @@ export class BalancesComponent implements OnInit, OnDestroy {
         this.balancesData = data;
         this.loadingBalanceData = false;
     });
+  }
+
+  onRefresh() {
+    this.refreshBalances();
   }
 
   ngOnDestroy() {

@@ -7,9 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AccountService {
-
   constructor(private client: HttpClient) { }
-
   getAccountBalances() : Observable<BalancesData> {
     return this.client.get<BalancesData>("http://localhost:8080/api/balances");
   }

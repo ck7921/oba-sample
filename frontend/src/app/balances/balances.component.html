@@ -2,6 +2,8 @@
   <p>Balances</p>
 </div>
 
+<loading-spinner *ngIf="loadingBalanceData"></loading-spinner>
+
 <div *ngIf="balancesData">
   Total: <span [ngStyle]="{color: balancesData.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ balancesData.currencySymbol }} {{ balancesData.balanceTotalDisplay }}</span>
 </div>
@@ -14,4 +16,8 @@
     <p><span [ngStyle]="{color: account.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ account.currencySymbol }} {{ account.balanceDisplay }}</span></p>
   </div>
 
+</div>
+
+<div>
+  <button (click)="onRefresh()">Refresh</button>
 </div>
