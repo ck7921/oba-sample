@@ -3,11 +3,13 @@ import {BalancesComponent} from "./balances/balances.component";
 import {NgModule} from "@angular/core";
 import {AuthenticationComponent} from "./authentication/authentication.component";
 import {ConsentComponent} from "./consent/consent.component";
+import {TransactionsComponent} from "./transactions/transactions.component";
 
 const routes: Routes = [
   { path: 'balances', component: BalancesComponent },
   { path: 'authentication/:action', component: AuthenticationComponent },
-  { path: 'consent/:consentId', component: ConsentComponent }
+  { path: 'consent/:consentId', component: ConsentComponent },
+  { path: 'transactions/:accountId', component: TransactionsComponent }
 ]
 
 @NgModule({
