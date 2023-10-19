@@ -1,6 +1,6 @@
 
 
-class AccountBalanceData {
+export class AccountBalanceData {
   public accountId: string;
   public accountName: string;
   public balanceDisplay: string;
@@ -8,7 +8,7 @@ class AccountBalanceData {
   public amountType: string;
 }
 
-class CurrencyTotalData {
+export class CurrencyTotalData {
   public balanceDisplay: string;
   public currencySymbol: string;
   public amountType: string;

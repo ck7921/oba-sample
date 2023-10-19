@@ -1,5 +1,5 @@
 <div>
-  <p>Balances</p>
+    <p>Balances</p>
 </div>
 
 <loading-spinner *ngIf="loadingBalanceData"></loading-spinner>
@@ -8,19 +8,22 @@
 
 </ng-template>
 <div *ngFor="let total of balancesData.currencyTotals">
-  Total: <span [ngStyle]="{color: total.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ total.currencySymbol }} {{ total.balanceDisplay }}</span>
+    Total: <span [ngStyle]="{color: total.amountType !== 'CREDIT' ? 'red' : 'black'}"
+>{{ total.currencySymbol }} {{ total.balanceDisplay }}</span>
 </div>
 
 
 <div *ngIf="balancesData">
 
-  <div *ngFor="let account of balancesData.accountBalances">
-    <p>{{ account.accountName }}</p>
-    <p><span [ngStyle]="{color: account.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ account.currencySymbol }} {{ account.balanceDisplay }}</span></p>
-  </div>
+    <div *ngFor="let account of balancesData.accountBalances">
+        <p>{{ account.accountName }}</p>
+        <p><span
+                [ngStyle]="{color: account.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ account.currencySymbol }} {{ account.balanceDisplay }}</span>
+        </p>
+    </div>
 
 </div>
 
 <div>
-  <button (click)="onRefresh()">Refresh</button>
+    <button (click)="onRefresh()">Refresh</button>
 </div>

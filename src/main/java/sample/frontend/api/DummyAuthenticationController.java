@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import sample.authentication.UserContext;
 import sample.frontend.api.dto.auth.AuthResultJson;
 import sample.frontend.api.dto.auth.ConsentApprovalJson;
+import sample.frontend.api.dto.auth.GenericActionResultJson;
 import sample.frontend.api.dto.auth.UserCredentialsJson;
 import sample.oba.api.AuthApi;
 
@@ -21,9 +22,9 @@ public class DummyAuthenticationController {
 
     private Map<String, String> userDetails;
 
-    private AuthApi authApiImpl;
+    private final AuthApi authApiImpl;
 
-    private UserContext userContext;
+    private final UserContext userContext;
 
     public DummyAuthenticationController(@NonNull AuthApi authApiImpl, UserContext userContext) {
         this.authApiImpl = authApiImpl;
@@ -32,8 +33,9 @@ public class DummyAuthenticationController {
 
     @PostConstruct
     public void init() {
-        this.userDetails = new ConcurrentHashMap<>(Map.of("simple.user",
-                System.getenv("authorizationUserName")));
+        this.userDetails = new ConcurrentHashMap<>(
+                Map.of("simple.user", System.getenv("authorizationUserName"),
+                        "sample.user", System.getenv("authorizationUserName")));
     }
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
@@ -69,7 +71,7 @@ public class DummyAuthenticationController {
     public ConsentApprovalJson consentIdApproved(@PathVariable("consentId") final String consentId) {
         final ConsentApprovalJson result = new ConsentApprovalJson();
         try {
-            final String tokenRequestCode = authApiImpl.approveConsent(consentId, userContext.getAuthorizationToken());
+            final String tokenRequestCode = authApiImpl.approveConsent(consentId, userContext.getUserId());
             final String userAuthToken = authApiImpl.requestUserAccessToken(tokenRequestCode)
                     .getAccessToken();
             userContext.setAuthorizationToken(userAuthToken);
@@ -83,9 +85,10 @@ public class DummyAuthenticationController {
     }
 
     @RequestMapping(value = "/goodbye", method = RequestMethod.GET)
-    public void logout() {
+    public GenericActionResultJson logout() {
         userContext.setAuthorizationToken(null);
         userContext.setUserId(null);
+        return GenericActionResultJson.success();
     }
 
 }

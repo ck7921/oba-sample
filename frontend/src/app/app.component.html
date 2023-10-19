@@ -7,9 +7,13 @@
 </div>
 
 <div>
-  <a routerLink="/balances" style="cursor: pointer;" >Balances</a>
-</div>
+  <a *ngIf="isAuthenticated()" routerLink="/balances" style="cursor: pointer;" >Balances</a>
+  <p>
+    <a *ngIf="!isAuthenticated()" routerLink="/authentication/login" style="cursor: pointer;">Login</a>
+  </p>
 
+  <a *ngIf="isAuthenticated()" routerLink="/authentication/logout" style="cursor: pointer;">Logout</a>
+</div>
 
 <hr/>
 

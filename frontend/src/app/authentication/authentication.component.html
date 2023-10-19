@@ -1,0 +1,26 @@
+<loading-spinner *ngIf="loading"></loading-spinner>
+
+<p>authentication</p>
+
+<div *ngIf="errorMessage" class="errorBox">
+    <p>{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="!isAuthenticated()">
+    <h1>Login</h1>
+    <form (ngSubmit)="onLoginClick()">
+        <label>User:<input type="text" maxlength="20" name="userName"
+                           [(ngModel)]="userName"></label>
+        <label>Password:<input type="password" maxlength="20" name="userPassword"
+                               [(ngModel)]="password"></label>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<div *ngIf="isAuthenticated()">
+    <h1>You are currently logged in!</h1>
+    <button (click)="logout()">Logout</button>
+</div>
+
+

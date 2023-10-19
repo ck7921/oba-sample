@@ -40,7 +40,7 @@ export class BalancesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if(this.balancesData!==null) this.balancesDataSubscription.unsubscribe();
+    if(this.balancesData) this.balancesDataSubscription.unsubscribe();
   }
 
 }

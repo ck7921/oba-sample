@@ -1,0 +1,12 @@
+<loading-spinner *ngIf="loading"></loading-spinner>
+
+<p>consent works!</p>
+
+
+<p>the application request your consent.</p>
+
+<div *ngIf="errorMessage" class="errorBox">
+    <p>{{ errorMessage }}</p>
+</div>
+
+<button (click)="onApprove()">Approve</button>
