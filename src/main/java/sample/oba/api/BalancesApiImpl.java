@@ -28,10 +28,10 @@ public class BalancesApiImpl implements BalancesApi {
 
     private static final Logger logger = LoggerFactory.getLogger(BalancesApiImpl.class);
 
-    private RestTemplateBuilder restTemplateBuilder;
+    private final RestTemplateBuilder restTemplateBuilder;
     private RestTemplate template;
 
-    private UserContext userContext;
+    private final UserContext userContext;
 
     public BalancesApiImpl(@NonNull RestTemplateBuilder restTemplateBuilder,
                            @NonNull UserContext userContext) {
@@ -56,6 +56,7 @@ public class BalancesApiImpl implements BalancesApi {
                 .build().toUri();
 
         final StopWatch watch = new StopWatch();
+        watch.start();
         // missing error handling code, hard coded url
         final ResponseEntity<AccountListDto> response = template.exchange(apiUri, HttpMethod.GET,
                 emptyBodyAndAuthHeaders(),
@@ -82,6 +83,7 @@ public class BalancesApiImpl implements BalancesApi {
                 .buildAndExpand(accountId).toUri();
 
         final StopWatch watch = new StopWatch();
+        watch.start();
         // missing error handling code, hard coded url
         final ResponseEntity<BalancesDto> response = template.exchange(apiUri, HttpMethod.GET,
                 emptyBodyAndAuthHeaders(),

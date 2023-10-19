@@ -2,6 +2,7 @@ package sample.oba.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.annotation.PostConstruct;
 import lombok.NonNull;
@@ -53,6 +54,7 @@ public class AuthApiImpl implements AuthApi {
 
         this.template = restTemplateBuilder.build();
         this.mapper.registerModule(new JavaTimeModule());
+        this.mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
     }
 
     @Override
@@ -103,6 +105,7 @@ public class AuthApiImpl implements AuthApi {
         }
 
         final StopWatch watch = new StopWatch();
+        watch.start();
         // missing error handling code, hard coded url
         final AccountResponseDto consentIdDto = template
                 .postForObject("https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/account-access-consents",
@@ -138,6 +141,7 @@ public class AuthApiImpl implements AuthApi {
                 .toString();
 
         final StopWatch watch = new StopWatch();
+        watch.start();
         final ConsentResponseDto redirectData = template
                 .getForEntity(uri, ConsentResponseDto.class).getBody();
         watch.stop();
@@ -173,6 +177,7 @@ public class AuthApiImpl implements AuthApi {
         HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(uatRequestPayloadMap, headers);
 
         final StopWatch watch = new StopWatch();
+        watch.start();
         // missing error handling code, hard coded url
         final AuthorizedUserTokenDto token = template.postForObject("https://ob.sandbox.natwest.com/token",
                 entity, AuthorizedUserTokenDto.class);

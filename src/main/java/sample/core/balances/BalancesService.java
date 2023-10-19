@@ -20,7 +20,7 @@ public class BalancesService {
 
     private static final Logger logger = LoggerFactory.getLogger(BalancesService.class);
 
-    private BalancesApi balancesApi;
+    private final BalancesApi balancesApi;
 
     public BalancesService(@NonNull BalancesApi balancesApi) {
         this.balancesApi = balancesApi;
@@ -70,7 +70,7 @@ public class BalancesService {
     }
 
     /**
-     * method takes first credit value of first debit value it findes
+     * method takes first credit value of first debit value it finds
      * ignoring the type
      *
      * @param balances list of balances for an account

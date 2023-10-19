@@ -1,7 +1,6 @@
 package sample.oba.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import experiments.dto.RiskJson;
 import experiments.dto.request.AccountRequestJson;
 import lombok.Data;
 import lombok.NonNull;
@@ -17,7 +16,7 @@ public class AccountRequestDto {
     private AccountRequestJson.AccountRequestDataJson data = new AccountRequestJson.AccountRequestDataJson();
 
     @JsonProperty("Risk")
-    private RiskJson risk = new RiskJson();
+    private RiskDto risk = new RiskDto();
 
     public AccountRequestDto addPermissions(@NonNull final String... permissions) {
         this.data.getPermissions().addAll(Arrays.asList(permissions));
