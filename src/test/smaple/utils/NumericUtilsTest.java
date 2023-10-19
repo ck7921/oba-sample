@@ -1,10 +1,20 @@
 package smaple.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Test;
+import org.springframework.web.util.UriComponentsBuilder;
+import sample.oba.api.dto.AccountListDto;
+import sample.oba.api.dto.BalancesDto;
 import sample.utils.NumericUtils;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
@@ -62,18 +72,6 @@ public class NumericUtilsTest {
     }
 
     @Test
-    void test() {
-        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("de","CH"));
-
-        System.out.println(currencyFormatter.format(of("123423423.5")));
-        System.out.println(currencyFormatter.format(of("-123423423.5")));
-
-        String s = new DecimalFormat("#,###.00",
-                new DecimalFormatSymbols(new Locale("de","CH"))).format(of("-123423423.5"));
-        System.out.println(s);
-    }
-
-    @Test
     @Description("format monetary amount")
     void formatSwissMonetaryAmount() {
         final Map<BigDecimal,String> numberMap = new HashMap<>();
@@ -92,6 +90,22 @@ public class NumericUtilsTest {
             final String result = NumericUtils.currencyFormatted(entry.getKey());
             assertEquals(entry.getValue(), result);
         }
+    }
+
+    @Test
+    void test() {
+        ObjectMapper mapper = new ObjectMapper();
+        try(InputStream is = Files.newInputStream(Paths.get("C:\\Users\\Chris\\IdeaProjects\\oba-sample\\src\\main\\resources\\dummy\\balances.json"))) {
+            BalancesDto s = mapper.readValue(is, BalancesDto.class);
+            System.out.println("done");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host("ob.sandbox.natwest.com")
+                .path("/open-banking/v3.1/aisp/accounts/{accountId}/balances")
+                .buildAndExpand("123").toUri().toString());
     }
 
     private BigDecimal of(final String s) {

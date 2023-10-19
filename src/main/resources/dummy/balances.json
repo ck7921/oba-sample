@@ -1,0 +1,32 @@
+{
+  "Data": {
+    "Balance": [
+      {
+        "AccountId": "ca3acb52-34dc-4820-bf8a-d5207c078263",
+        "CreditDebitIndicator": "Credit",
+        "Type": "Expected",
+        "DateTime": "2023-10-06T11:36:00.000Z",
+        "Amount": {
+          "Amount": "125680.92",
+          "Currency": "GBP"
+        }
+      },
+      {
+        "AccountId": "ca3acb52-34dc-4820-bf8a-d5207c078263",
+        "CreditDebitIndicator": "Credit",
+        "Type": "ForwardAvailable",
+        "DateTime": "2023-10-06T11:36:00.000Z",
+        "Amount": {
+          "Amount": "125680.92",
+          "Currency": "GBP"
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/ca3acb52-34dc-4820-bf8a-d5207c078263/balances"
+  },
+  "Meta": {
+    "TotalPages": 1
+  }
+}

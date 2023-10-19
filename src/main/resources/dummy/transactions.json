@@ -1,0 +1,152 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "d8c78698-d007-4017-a9b2-64c23f5031ec",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-16T11:36:49.141Z",
+        "Amount": {
+          "Amount": "26.48",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Standing order to NWBK80540122222222",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19606.40",
+            "Currency": "GBP"
+          }
+        }
+      },
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "92ef9239-7b46-44d3-b56c-ed5a73e68f2b",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-16T11:36:49.085Z",
+        "Amount": {
+          "Amount": "13.37",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Scheduled payment to GB49AIBK93134999999999",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19632.88",
+            "Currency": "GBP"
+          }
+        }
+      },
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "c7bcfbf0-2c35-48cb-acb7-9a1abccb80cf",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-14T11:40:08.286Z",
+        "Amount": {
+          "Amount": "26.48",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Ref2",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19646.25",
+            "Currency": "GBP"
+          }
+        }
+      },
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "a40fa78f-ea88-4c4f-9aaa-19f725b1e530",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-14T11:40:08.273Z",
+        "Amount": {
+          "Amount": "26.48",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Standing order to NWBK80540122222222",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19672.73",
+            "Currency": "GBP"
+          }
+        }
+      },
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "5ec28da4-864f-4f6c-b640-d525c632bf04",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-08T11:36:00.000Z",
+        "Amount": {
+          "Amount": "72.14",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Pizzeria Mama Roma",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19699.21",
+            "Currency": "GBP"
+          }
+        }
+      },
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "14461fce-2f2d-4952-bbe3-fc4a0de356b2",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-06T11:36:00.000Z",
+        "Amount": {
+          "Amount": "250.00",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Monthly savings",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19771.35",
+            "Currency": "GBP"
+          }
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=0",
+    "First": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=0",
+    "Last": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=0"
+  },
+  "Meta": {
+    "TotalPages": 1
+  }
+}

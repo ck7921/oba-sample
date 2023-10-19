@@ -8,11 +8,14 @@ class AccountBalanceData {
   public amountType: string;
 }
 
-export class BalancesData {
-  public balanceTotalDisplay: string;
+class CurrencyTotalData {
+  public balanceDisplay: string;
   public currencySymbol: string;
   public amountType: string;
+}
 
+export class BalancesData {
+  public currencyTotals: CurrencyTotalData[];
   public accountBalances: AccountBalanceData[];
 
   constructor() {}

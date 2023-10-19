@@ -4,8 +4,11 @@
 
 <loading-spinner *ngIf="loadingBalanceData"></loading-spinner>
 
-<div *ngIf="balancesData">
-  Total: <span [ngStyle]="{color: balancesData.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ balancesData.currencySymbol }} {{ balancesData.balanceTotalDisplay }}</span>
+<ng-template *ngIf="balancesData">
+
+</ng-template>
+<div *ngFor="let total of balancesData.currencyTotals">
+  Total: <span [ngStyle]="{color: total.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ total.currencySymbol }} {{ total.balanceDisplay }}</span>
 </div>
 
 
