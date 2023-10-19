@@ -4,16 +4,17 @@ import jakarta.annotation.PostConstruct;
 import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import sample.authentication.UserContext;
-import sample.oba.api.dto.BalancesDto;
 import sample.oba.api.dto.TransactionDto;
 
 import java.net.URI;
@@ -22,6 +23,10 @@ import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 
+@Component
+@ConditionalOnProperty(
+        value = "app.data.transactions.dev",
+        havingValue = "false", matchIfMissing = true)
 public class TransactionApiImpl implements TransactionApi {
     private static final Logger logger = LoggerFactory.getLogger(TransactionApiImpl.class);
 
@@ -44,7 +49,8 @@ public class TransactionApiImpl implements TransactionApi {
 
     @Override
     public TransactionDto getTransactionsOfAccount(@NonNull final String accountId,
-                                                   final Instant bookingDate,
+                                                   final Instant startBookingDate,
+                                                   final Instant endBookingDate,
                                                    final int page) {
         logger.debug("Fetching account transactions for account {} and user {}",
                 accountId,
@@ -54,7 +60,8 @@ public class TransactionApiImpl implements TransactionApi {
                 .scheme("https")
                 .host("ob.sandbox.natwest.com")
                 .path("/open-banking/v3.1/aisp/accounts/{accountId}/transactions")
-                .queryParam("toBookingDateTime", formatTimestamp(bookingDate))
+                .queryParam("fromBookingDateTime", formatTimestamp(startBookingDate))
+                .queryParam("toBookingDateTime", formatTimestamp(endBookingDate))
                 .queryParam("page", page)
                 .buildAndExpand(accountId).toUri();
 
@@ -84,7 +91,7 @@ public class TransactionApiImpl implements TransactionApi {
     private String formatTimestamp(final Instant timestamp) {
         // ISO-8601
         return OffsetDateTime
-                .ofInstant(Instant.now(), ZoneId.of("UTC"))
+                .ofInstant(timestamp, ZoneId.of("UTC"))
                 .truncatedTo( ChronoUnit.SECONDS )
                 .toString();
     }

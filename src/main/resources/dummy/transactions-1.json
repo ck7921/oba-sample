@@ -1,0 +1,37 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "92ef9239-7b46-44d3-b56c-ed5a73e68f2b",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-16T11:36:49.085Z",
+        "Amount": {
+          "Amount": "13.37",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Scheduled payment to GB49AIBK93134999999999",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19632.88",
+            "Currency": "GBP"
+          }
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=1",
+    "First": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=0",
+    "Last": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=5"
+  },
+  "Meta": {
+    "TotalPages": 6
+  }
+}

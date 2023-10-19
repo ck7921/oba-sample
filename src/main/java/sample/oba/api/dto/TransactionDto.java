@@ -13,19 +13,24 @@ public class TransactionDto {
     @JsonProperty("Data")
     private Data data;
 
+    @JsonProperty("Meta")
+    private Meta meta;
+
     @lombok.Data
     @JsonIgnoreProperties(ignoreUnknown = true)
-    private static class Data {
+    public static class Data {
         @JsonProperty("Transaction")
         private List<Transaction> transactions;
     }
 
     @lombok.Data
     @JsonIgnoreProperties(ignoreUnknown = true)
-    private static class Transaction {
+    public static class Transaction {
 
         @JsonProperty("TransactionId")
         private String transactionId;
+        @JsonProperty("TransactionInformation")
+        private String transactionInformation;
         @JsonProperty("CreditDebitIndicator")
         private String creditDebitIndicator;
         @JsonProperty("BookingDateTime")
@@ -53,5 +58,12 @@ public class TransactionDto {
         private String creditDebitIndicator;
         @JsonProperty("Amount")
         private Amount amount;
+    }
+
+    @lombok.Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Meta {
+        @JsonProperty("TotalPages")
+        private String totalPages;
     }
 }

@@ -7,11 +7,11 @@ import jakarta.annotation.PostConstruct;
 import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 import sample.oba.api.TransactionApi;
-import sample.oba.api.dto.AccountListDto;
 import sample.oba.api.dto.TransactionDto;
 
 import java.io.IOException;
@@ -21,13 +21,16 @@ import java.time.Instant;
 
 @Component
 @ConditionalOnProperty(
-        value = "app.data.dev",
+        value = "app.data.transactions.dev",
         havingValue = "true")
 public class TransactionsDummyApiImpl implements TransactionApi {
 
     private static final Logger logger = LoggerFactory.getLogger(TransactionsDummyApiImpl.class);
 
     private final ObjectMapper mapper = new ObjectMapper();
+
+    @Value("${app.data.transactions.dev.pagination}")
+    private boolean usePagination;
 
     @PostConstruct
     public void init() {
@@ -36,21 +39,17 @@ public class TransactionsDummyApiImpl implements TransactionApi {
         this.mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
     }
 
-    public TransactionDto getTransactionsOfAccount(@NonNull final String accountId) {
-        try (final InputStream is =
-                     Files.newInputStream(ResourceUtils
-                             .getFile("classpath:dummy/transactions.json").toPath())) {
-            return mapper.readValue(is, TransactionDto.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     @Override
-    public TransactionDto getTransactionsOfAccount(@NonNull String accountId, Instant bookingDate, int page) {
+    public TransactionDto getTransactionsOfAccount(@NonNull String accountId,
+                                                   Instant startBookingDate,
+                                                   Instant endBookingDate,
+                                                   int page) {
+        final String fileName = "transactions" + (usePagination ? "-" + page : "") + ".json";
+        logger.debug("Loading transaction data from file: {}", fileName);
+
         try (final InputStream is =
                      Files.newInputStream(ResourceUtils
-                             .getFile("classpath:dummy/transactions.json").toPath())) {
+                             .getFile("classpath:dummy/" + fileName).toPath())) {
             return mapper.readValue(is, TransactionDto.class);
         } catch (IOException e) {
             throw new RuntimeException(e);

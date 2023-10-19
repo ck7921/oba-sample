@@ -53,8 +53,13 @@ export class TransactionsComponent implements OnInit, OnDestroy {
                 this.currentPage = res.currentPageNumber;
                 this.totalPageCount = res.totalPageCount;
                 // local data
-                this.transactionsData = res;
-                this.transactionsDetailsData = res.transactionDetails;
+                if(this.currentPage == 0) {
+                    this.transactionsData = res;
+                    this.transactionsDetailsData = res.transactionDetails;
+                } else {
+                    this.transactionsDetailsData.push(...res.transactionDetails);
+                }
+
             })
     }
 
@@ -64,6 +69,10 @@ export class TransactionsComponent implements OnInit, OnDestroy {
 
     hasMorePages(): boolean {
         return this.totalPageCount > 0 && this.currentPage + 1 < this.totalPageCount;
+    }
+
+    hasData() : boolean {
+        return this.transactionsData != null;
     }
 
     ngOnDestroy(): void {

@@ -1,0 +1,37 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "a40fa78f-ea88-4c4f-9aaa-19f725b1e530",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-14T11:40:08.273Z",
+        "Amount": {
+          "Amount": "26.48",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Standing order to NWBK80540122222222",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19672.73",
+            "Currency": "GBP"
+          }
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=3",
+    "First": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=0",
+    "Last": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=5"
+  },
+  "Meta": {
+    "TotalPages": 6
+  }
+}

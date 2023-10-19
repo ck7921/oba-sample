@@ -1,0 +1,37 @@
+{
+  "Data": {
+    "Transaction": [
+      {
+        "AccountId": "413c94d6-bb9d-4678-af7d-fef1173a8c1c",
+        "TransactionId": "5ec28da4-864f-4f6c-b640-d525c632bf04",
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2023-10-08T11:36:00.000Z",
+        "Amount": {
+          "Amount": "72.14",
+          "Currency": "GBP"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "TFR"
+        },
+        "TransactionInformation": "Pizzeria Mama Roma",
+        "Balance": {
+          "CreditDebitIndicator": "Credit",
+          "Type": "Information",
+          "Amount": {
+            "Amount": "19699.21",
+            "Currency": "GBP"
+          }
+        }
+      }
+    ]
+  },
+  "Links": {
+    "Self": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=4",
+    "First": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=0",
+    "Last": "https://ob.sandbox.natwest.com/open-banking/v3.1/aisp/accounts/413c94d6-bb9d-4678-af7d-fef1173a8c1c/transactions?page=5"
+  },
+  "Meta": {
+    "TotalPages": 6
+  }
+}

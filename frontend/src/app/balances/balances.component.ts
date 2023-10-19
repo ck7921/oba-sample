@@ -35,7 +35,12 @@ export class BalancesComponent implements OnInit, OnDestroy {
     });
   }
 
+  hasData() : boolean {
+    return this.balancesData != null;
+  }
+
   onRefresh() {
+    this.balancesData = null;
     this.refreshBalances();
   }
 
