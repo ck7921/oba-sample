@@ -1,6 +1,23 @@
   
 # OBA Sample Project
-  
+
+## How to run the project?
+
+first configure the following env vars:
+* authorizationUserName=<FROM_NAT_WEST> ... the name of the user e.g. 123456@your-ap-domain
+* clientSecret=<FROM_NAT_WEST>
+* clientId=<FROM_NAT_WEST>
+
+afterwards start spring boot application:
+* sample.Main
+
+in the spring boot application properties file (src/main/resources/application.properties) you can configure to use dummy data instead of API.
+With the following config local dummy data is used.
+* app.data.dev=true
+* app.data.transactions.dev=true
+if you want to use dummy data with pagination, use:
+* app.data.transactions.dev.pagination=true
+
 ## UI issues
     
 * ui: spinn has no timeout
@@ -40,3 +57,6 @@
 
 * build: version numbers in maven file
     
+
+
+TODO: env vars for start up adding
