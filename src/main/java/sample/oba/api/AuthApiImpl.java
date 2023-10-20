@@ -37,8 +37,6 @@ public class AuthApiImpl implements AuthApi {
     private final @NonNull RestTemplateBuilder restTemplateBuilder;
     private final ObjectMapper mapper;
     private RestTemplate template;
-    @Value("${app.data.dev}")
-    private String xxx;
 
     public AuthApiImpl(@NonNull RestTemplateBuilder restTemplateBuilder,
                        @NonNull ObaApiConfig obaApiConfig) {
@@ -50,7 +48,6 @@ public class AuthApiImpl implements AuthApi {
     @PostConstruct
     public void init() {
         logger.info("Running with AuthApi: {}", this.getClass().getSimpleName());
-        logger.info("this is " + xxx);
 
         this.template = restTemplateBuilder.build();
         this.mapper.registerModule(new JavaTimeModule());

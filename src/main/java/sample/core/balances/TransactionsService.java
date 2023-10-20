@@ -33,7 +33,7 @@ public class TransactionsService {
 
         // calculate which page depending on sort direction
         int totalPageCount = sortDirection == SortDirection.ASC ?
-                getTotalPageCountOfAccount(accountId, now, past) : -1;
+                getTotalPageCountOfAccount(accountId, past, now) : -1;
 
         int pageToLoad = sortDirection == SortDirection.DESC ? page : totalPageCount - page - 1;
 
