@@ -1,23 +1,21 @@
-<div>
-  <p>OBA Sample</p>
+<!-- header -->
+<div class="header">
+  <ul class="list-unstyled">
+    <li><h1>OBA Sample</h1></li>
+    <li>Welcome <span>{{getUserName()}}</span></li>
+  </ul>
 </div>
 
-<div>
-  <p>Welcome {{getUserName()}}</p>
+<!-- navbar -->
+<div class="navbar">
+  <a *ngIf="isAuthenticated()" routerLink="/balances" class="nav-link">Balances</a>
+  <a *ngIf="!isAuthenticated()" routerLink="/authentication/login" class="nav-link">Login</a>
+  <a *ngIf="isAuthenticated()" routerLink="/authentication/logout" class="nav-link">Logout</a>
 </div>
 
-<div>
-  <a *ngIf="isAuthenticated()" routerLink="/balances" style="cursor: pointer;" >Balances</a>
-  <p>
-    <a *ngIf="!isAuthenticated()" routerLink="/authentication/login" style="cursor: pointer;">Login</a>
-  </p>
+<!-- main container -->
+<div class="mainContainer">
+  <router-outlet>
 
-  <a *ngIf="isAuthenticated()" routerLink="/authentication/logout" style="cursor: pointer;">Logout</a>
+  </router-outlet>
 </div>
-
-<hr/>
-
-<div>
-  <router-outlet></router-outlet>
-</div>
-

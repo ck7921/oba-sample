@@ -1,0 +1,21 @@
+.header {
+  display: flex; width: 800px; border: 1px solid blue; margin:15px auto 0 auto;
+  background-color: #8bb9fe; padding: 5px;
+}
+
+.navbar {
+  display: flex; width: 800px; border: 1px solid blue; margin:5px auto 0 auto;
+  background-color: #8bb9fe; padding: 5px;
+}
+
+.contentContainer {
+  display: flex; width: 800px;  margin:15px auto 0 auto;
+  background-color: lightsteelblue;
+  padding:25px 15px 15px 5px
+}
+
+.mainContainer {
+  display: flex; width: 800px;  margin:15px auto 0 auto;
+  background-color: whitesmoke;
+  padding:25px 15px 15px 5px
+}
