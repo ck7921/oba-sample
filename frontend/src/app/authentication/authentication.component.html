@@ -1,7 +1,5 @@
 <loading-spinner *ngIf="loading"></loading-spinner>
 
-<p>authentication</p>
-
 <div *ngIf="errorMessage" class="errorBox">
     <p>{{ errorMessage }}</p>
 </div>
@@ -10,9 +8,9 @@
     <h1>Login</h1>
     <form (ngSubmit)="onLoginClick()">
         <label>User:<input type="text" maxlength="20" name="userName"
-                           [(ngModel)]="userName"></label>
+                           [(ngModel)]="userName" style="margin:5px;"></label>
         <label>Password:<input type="password" maxlength="20" name="userPassword"
-                               [(ngModel)]="password"></label>
+                               [(ngModel)]="password" style="margin:5px;"></label>
 
         <button type="submit">Login</button>
     </form>

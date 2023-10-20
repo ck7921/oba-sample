@@ -1,11 +1,11 @@
 <div>
-    <p>Balances</p>
+    <p>Balances Overview</p>
 </div>
 
 <loading-spinner *ngIf="loadingBalanceData"></loading-spinner>
 
-<div *ngIf="hasData()">
-    <div *ngFor="let total of balancesData.currencyTotals">
+<div *ngIf="hasData()" style="margin-bottom: 15px;border-bottom:1px solid black; width: 700px;">
+    <div *ngFor="let total of balancesData.currencyTotals" style="text-align: right; font-size: 22px; font-weight: bold;">
         Total: <span [ngStyle]="{color: total.amountType !== 'CREDIT' ? 'red' : 'black'}"
     >{{ total.currencySymbol }} {{ total.balanceDisplay }}</span>
     </div>
@@ -15,18 +15,18 @@
 
 <div *ngIf="hasData()">
 
-    <div *ngFor="let account of balancesData.accountBalances">
+    <div *ngFor="let account of balancesData.accountBalances" style="border-bottom:1px solid lightblue;">
         <p>{{ account.accountName }}</p>
-        <p><span
-                [ngStyle]="{color: account.amountType !== 'CREDIT' ? 'red' : 'black'}">{{ account.currencySymbol }} {{ account.balanceDisplay }}</span>
+        <p style="text-align: right;"><span
+                [ngStyle]="{color: account.amountType !== 'CREDIT' ? 'red' : 'black', fontWeight: 'bold'}">{{ account.currencySymbol }} {{ account.balanceDisplay }}</span>
         </p>
-        <p>
+        <p style="text-align: right;">
             <a [routerLink]="['/transactions', account.accountId]">Show Account Transactions</a>
         </p>
     </div>
 
 </div>
 
-<div>
+<div style="text-align: right; padding:10px 0 0 0;">
     <button (click)="onRefresh()">Refresh</button>
 </div>

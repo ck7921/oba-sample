@@ -1,28 +1,28 @@
 <div>
-    <p>Transactions</p>
+    <p>Account Transactions Overview</p>
 </div>
 
 <loading-spinner *ngIf="loadingTransactionData"></loading-spinner>
 
-<div *ngIf="hasData()">
+<div *ngIf="hasData()" style="border-bottom:1px solid darkblue; text-align: right; font-weight: bold; font-size: 20px;">
     Total: <span [style.color]="getAmountTypeColor(transactionsData.accountAmountType)"
 >{{ transactionsData.accountCurrencySymbol }} {{ transactionsData.accountBalanceDisplay }}</span>
 </div>
 
 <div style="padding:15px 0 0 0">
-    Sort direction: {{ sortDirection }} <span> | </span>(<a (click)="toggleSortDirection()" style="cursor: pointer;">toggle direction</a>)
+    Sort direction: {{ sortDirection }} <span> | </span> <a (click)="toggleSortDirection()" style="cursor: pointer; float: right;">reverse sort direction</a>
 </div>
 
 
     <div *ngFor="let txn of transactionsDetailsData" style="padding:15px 0 0 0;">
 
-        <div style="border:1px solid black;">
+        <div style="border:1px solid black; width: 750px; padding: 5px;">
             <span>Description: {{txn.description}}</span><br/>
             <span>Date: {{txn.timestampDisplay}}</span>
 
-            <p>Amount: <span [style.color]="getAmountTypeColor(txn.amountType)"
+            <p style="text-align: right;">Amount: <span [style.color]="getAmountTypeColor(txn.amountType)" style="font-weight: bold;"
             >{{txn.amountCurrencySymbol}} {{txn.amountDisplay}}</span></p>
-            <p>Account balance: <span [style.color]="getAmountTypeColor(txn.balanceAmountType)"
+            <p style="text-align: right;">Account balance: <span [style.color]="getAmountTypeColor(txn.balanceAmountType)"
             >{{txn.balanceCurrencySymbol}} {{txn.balanceAmountDisplay}}</span>
             </p>
         </div>
@@ -34,7 +34,7 @@
     No transaction data available.
 </div>
 
-<div *ngIf="hasMorePages()">
+<div *ngIf="hasMorePages()" style="text-align: center; padding:15px;">
     <button (click)="loadNextPage()">Load more ...</button>
 </div>
 
