@@ -20,8 +20,10 @@ if you want to use dummy data with pagination, use:
 
 for login use:
 * user: sample.user
+
 always use this user name no mater what has been configured in the env vars. This user is mapped to the user you configure in the env var.
 * password: 123456
+
 Keep the password a secret!
 
 ## UI issues
